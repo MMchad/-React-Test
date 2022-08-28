@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function CarModel_LG({ Car, CarImage, HandleClick }) {
     return (
-        <Table className="Car w-100 rounded d-none d-lg-table" key={Car.ID}>
+        <Table className="Car w-100 rounded" key={Car.ID}>
             <tbody>
                 <tr>
                     <td rowSpan={4} className="CarImgCell">

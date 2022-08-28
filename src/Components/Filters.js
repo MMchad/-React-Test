@@ -102,8 +102,8 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
 
                 }
                 if (!HideFilters.includes(Key)) {
-                    var Values = Cars.map(Car => Car[Key]);
-                    Values = Values.filter((Value, index) => Values.indexOf(Value) === index);
+                    var Values = Cars.map(Car => Car[Key].toUpperCase());
+                    Values = Values.filter((Value, index) => Values.indexOf(Value.toUpperCase()) === index);
                     Values = Values.filter((Value) => Value.replace(/ /g, '').toUpperCase());
                     setUniqueKeys((Prev) => ({ ...Prev, [Key]: Values }));
                     setFilterUniqueKeys((Prev) => ({ ...Prev, [Key]: Values }));
@@ -231,7 +231,7 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
                             <td>
                                 <Collapse in={Expanded.Year} style={{ margin: "0px", padding: "0px" }}>
                                     <div>
-                                        <div style={{ overflow: "hidden", padding: "10px" }}>
+                                        <div style={{ height: "10vh", padding: "2vh" }}>
                                             <div style={{ width: "35%", float: "left" }}>
                                                 <Form.Label>Min</Form.Label>
                                                 <Dropdown>

@@ -129,12 +129,11 @@ export default function SearchResult({ Cars, DisplayedCars, SetDisplayedCars }) 
                             </form>
                         </div>
                         <div className="CarListContainer mh-100 h-100 ">
-                            <Stack gap={1} className='ps-5 pe-5 pt-3 pb-2 d-flex align-items-center justify-content-center'>
-                                {DisplayedCars.map((Car) =>
-                                (
-                                    Car.Empty === undefined ? <CarModel Car={Car} Cars={DisplayedCars} /> : <></>
-                                ))}
-                            </Stack>
+
+                            {DisplayedCars.map((Car) =>
+                            (
+                                Car.Empty === undefined ? <CarModel Car={Car} Cars={DisplayedCars} /> : <></>
+                            ))}
                         </div>
                     </Stack>
                 </Col>
