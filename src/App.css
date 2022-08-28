@@ -1,38 +1,204 @@
+html,
+body,
+.App,
+#root {
+  font-family: 'Roboto', sans-serif;
+  min-height: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 5.5vh;
+  }
+}
+
+@media not (max-width: 768px) {
+  body {
+    padding-top: 5.7vh;
+  }
+}
+
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
 .App {
+  width: 100%;
+  height: 100%;
+
+}
+
+.FiltersOffCanvasButton {
+  height: 40px;
+  width: 40px;
+}
+
+.SearchBarDiv {
+  border-bottom: 1px solid rgba(170, 167, 167, 0.651);
+  height: 3rem;
+}
+
+.SearchBar {
+  height: 4vh;
+  outline: none;
+  font-size: 2.5vh;
+}
+
+.SearchIcon {
+  height: 35px;
+  width: 35px;
+  align-self: center;
+}
+
+.SearchIcon:hover {
+  cursor: pointer;
+}
+
+.FiltersTab {
+  max-width: 35vh;
+}
+
+.FiltersTitle {
+  height: 45px;
   text-align: center;
+  border-radius: 4px;
+  line-height: 45px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Filters thead {
+  height: 45px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Filters thead tr th {
+  text-align: center;
+  font-weight: 600;
+  font-family: "Roboto Condensed",
+    arial,
+    sans-serif;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Filters tbody tr th:hover {
+  cursor: pointer;
+}
+
+.Filters tbody tr th div button span {
+  height: 28px;
+}
+
+.Filters tbody tr th {
+  font-size: 1.7vh;
+  height: 5vh;
+}
+
+.Filters tbody tr td {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.5vh
+}
+
+.Filters tbody tr {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Collapse {
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+}
+
+.Expand {
+  transform: rotate(-180deg);
+  transition: transform 0.2s linear;
+}
+
+.CarListContainer {
+  background-color: rgb(243, 241, 241);
+  border-left: 1px solid rgba(170, 167, 167, 0.651);
+}
+
+.Car {
+  border-collapse: separate;
+  border: 0.3px solid rgb(202, 202, 202);
+  background-color: white;
+  -webkit-box-shadow: -3px 10px 15px -9px #000000;
+  box-shadow: -3px 10px 15px -9px #000000;
+  min-width: none;
+}
+
+.Car tr td a {
+  text-decoration: none;
+  color: black;
+}
+
+.Car tr td {
+  font-size: 1.6vh;
+  border: none;
+  min-width: none;
+}
+
+.CarImgCell {
+  height: 13vh;
+  width: 18vh;
+}
+
+.CarImg {
+  height: 12vh;
+  width: 16vh;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 0px 10px 15px -9px #000000;
+  box-shadow: 0px 10px 15px -9px #000000;
+  border: 1px solid rgba(170, 167, 167, 0.651);
+  ;
+}
+
+.LinkHover:hover {
+  cursor: pointer;
+}
+
+.InfoContainer {
+  margin-left: 1rem;
+}
+
+.Pointer:hover {
+  cursor: pointer;
+}
+
+.CarDetails {
+  border: 1px solid #212529;
+}
+
+.CarDetails thead tr th {
+  font-family: "Roboto Condensed", arial, sans-serif;
+  font-size: 1.7vh;
+  ;
+}
+
+.CarDetails tbody tr td:nth-child(2) {
+  text-align: right;
+}
+
+.CarDetails tbody tr td {
+  padding: 15px;
+  font-size: 1.7vh;
+}
+
+.NavigateBackButton {
+  min-height: 100%;
+  flex: 1;
+  text-align: left;
+
+}
+
+.NavigateBackButton button {
+  background-color: #212529;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 5.5vh;
 }
