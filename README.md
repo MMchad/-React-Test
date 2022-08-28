@@ -50,13 +50,18 @@ The app is quiet simple to use
 ### Desktop View
 
 ![D-Img1](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Desktop/1.png?raw=true)
+<br/><br/>
 ![D-Img2](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Desktop/2.png?raw=true)
+<br/><br/>
 ![D-Img3](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Desktop/3.png?raw=true)
+<br/><br/>
 ![D-Img4](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Desktop/4.png?raw=true)
 ### Mobile View
 
 ![M-Img1](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Mobile/1.png?raw=true)
+<br/><br/>
 ![M-Img2](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Mobile/2.png?raw=true)
+<br/><br/>
 ![M-Img3](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Mobile/3.png?raw=true)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
