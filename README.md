@@ -35,7 +35,7 @@ First react project.
 <!-- GETTING STARTED -->
 ## Firebase Hosting
 
-(https://react-cars-e19ad.web.app/)
+https://react-cars-e19ad.web.app/
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
