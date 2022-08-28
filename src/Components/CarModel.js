@@ -38,7 +38,7 @@ export default function CarModel({ Car, Cars }) {
                 <CarModel_LG Car={Car} CarImage={CarImage} HandleClick={HandleClick} />
             </Stack>
 
-            <Stack gap={1} className=' d-lg-none d-md-block ps-1 pe-1 pt-3 pb-2 d-flex align-items-center justify-content-center'>
+            <Stack gap={1} className=' d-lg-none d-md-block ps-1 pe-1 pt-1 pb-1 d-flex align-items-center justify-content-center'>
                 <CarModel_SM Car={Car} CarImage={CarImage} HandleClick={HandleClick} />
             </Stack>
 

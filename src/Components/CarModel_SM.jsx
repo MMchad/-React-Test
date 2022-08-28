@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 export default function CarModel_SM({ Car, CarImage, HandleClick }) {
 
     return (
-        <Card className="align-center mb-2 p-0 w-100" onClick={HandleClick}>
+        <Card className="align-center mb-2 p-0 w-90" onClick={HandleClick}>
             <Card.Img variant="top" src={CarImage} style={{ display: "block", objectFit: "scale-down" }} />
             <Card.Body>
                 <Card.Title style={{ fontSize: "2.3vh" }}>{Car.Title}</Card.Title>
