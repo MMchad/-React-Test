@@ -8,8 +8,11 @@ import { default as FiltersTable } from './Filters';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 export default function SearchResult({ Cars, DisplayedCars, SetDisplayedCars }) {
-    const [Filters, setFilters] = useState({ Empty: true });
-    const [SearchTerm, setSearchTerm] = useState("");
+
+    const SessionFilters = JSON.parse(sessionStorage.getItem("Filters"));
+    const SessionSearchTerm = sessionStorage.getItem("SearchTerm");
+    const [Filters, setFilters] = useState(SessionFilters === null ? {} : SessionFilters);
+    const [SearchTerm, setSearchTerm] = useState(SessionSearchTerm === null ? "" : SessionSearchTerm);
     const [show, setShow] = useState(false);
 
     const HandleClose = () => setShow(false);
@@ -68,14 +71,6 @@ export default function SearchResult({ Cars, DisplayedCars, SetDisplayedCars }) 
     useEffect(() => {
         SearchCars();
     }, [Filters]);
-
-    useEffect(() => {
-        if (sessionStorage.getItem("SearchTerm") !== null) {
-            setSearchTerm(sessionStorage.getItem("SearchTerm"))
-        }
-
-    }, []);
-
 
     return (
         <Container className="vh-100 SearchContainer" fluid >

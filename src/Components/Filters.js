@@ -11,13 +11,15 @@ import Col from 'react-bootstrap/Col';
 import { CarObjectModel } from './App';
 
 export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
+    const SessionExpanded = JSON.parse(sessionStorage.getItem("Expanded"));
+    const SessionExpandClass = JSON.parse(sessionStorage.getItem("ExpandClass"));
     const HideFilters = ["ID", "Title", "Odometer", "Year"];
     const Years = Range(1900, 2024);
     const [FilterUniqueKeys, setFilterUniqueKeys] = useState({});
     const [UniqueKeys, setUniqueKeys] = useState({});
-    const [Expanded, setExpanded] = useState({});
+    const [Expanded, setExpanded] = useState(SessionExpanded === null ? {} : SessionExpanded);
     const ExpandClasses = { Expand: "material-icons ms-1 Expand", Collapse: "material-icons ms-1 Collapse" };
-    const [ExpandClass, setExpandClass] = useState({});
+    const [ExpandClass, setExpandClass] = useState(SessionExpandClass === null ? {} : SessionExpandClass);
 
 
     function HandleCategory(Category) {
@@ -82,10 +84,7 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
     }
 
     useEffect(() => {
-        if (Filters.Empty === undefined) {
-            sessionStorage.setItem("Filters", JSON.stringify(Filters));
-        }
-
+        sessionStorage.setItem("Filters", JSON.stringify(Filters));
     }, [Filters]);
 
     useEffect(() => {
@@ -98,9 +97,6 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
         if (Cars.length > 0) {
 
             Object.keys(CarObjectModel).map((Key) => {
-                if (sessionStorage.getItem("Expanded" === null)) {
-
-                }
                 if (!HideFilters.includes(Key)) {
                     var Values = Cars.map(Car => Car[Key].toUpperCase());
                     Values = Values.filter((Value, index) => Values.indexOf(Value.toUpperCase()) === index);
@@ -115,18 +111,7 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
     }, [Cars]);
 
     useEffect(() => {
-        if (sessionStorage.getItem("Filters") != null) {
-            setFilters(JSON.parse(sessionStorage.getItem("Filters")));
-        }
-        else {
-            setFilters({});
-
-        }
-        if (sessionStorage.getItem("Expanded") !== null) {
-            setExpanded(JSON.parse(sessionStorage.getItem("Expanded")));
-            setExpandClass(JSON.parse(sessionStorage.getItem("ExpandClass")));
-        }
-        else {
+        if (SessionExpandClass === null || SessionExpanded === null) {
             Object.keys(CarObjectModel).map((Key) => {
                 setExpanded((Prev) => ({ ...Prev, [Key]: false }))
                 setExpandClass((Prev) => ({ ...Prev, [Key]: ExpandClasses.Collapse }));
@@ -153,7 +138,7 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
                     <td>
                         <div style={{ lineHeight: "5.3vh", maxHeight: "350px", overflowY: "auto" }}>
                             {
-                                Object.keys(Filters).length > 0 && Filters.Empty === undefined
+                                Object.keys(Filters).length > 0
                                     ?
                                     <>
                                         <Button style={{ fontSize: "1.7vh" }} variant="primary" onClick={() => { setFilters({}) }}>

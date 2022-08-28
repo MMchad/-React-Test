@@ -33,26 +33,18 @@ export const CarObjectModel = {
 
 export default function App() {
 
-    const [Cars, setCars] = useState([]);
-    const [DisplayedCars, setDisplayedCars] = useState([{ Empty: true }]);
+    const LocalStorageCars = JSON.parse(localStorage.getItem("Cars"));
+    const SessionDisplayedCars = JSON.parse(sessionStorage.getItem("DisplayedCars"));
+    const [Cars, setCars] = useState(LocalStorageCars === null ? [] : LocalStorageCars);
+    const [DisplayedCars, setDisplayedCars] = useState(SessionDisplayedCars === null ? [{}] : SessionDisplayedCars);
 
 
     async function GetCars() {
-
-        if (localStorage.getItem("Cars") === null) {
-            const AllCars = await FetchCars();
-            setCars(AllCars);
-            setDisplayedCars(AllCars);
-            localStorage.setItem("Cars", JSON.stringify(AllCars));
-            sessionStorage.setItem("DisplayedCars", JSON.stringify(AllCars));
-        }
-        else {
-            setCars(JSON.parse(localStorage.getItem("Cars")));
-            Cars.map((Car) => {
-
-            })
-        }
-
+        const AllCars = await FetchCars();
+        setCars(AllCars);
+        setDisplayedCars(AllCars);
+        localStorage.setItem("Cars", JSON.stringify(AllCars));
+        sessionStorage.setItem("DisplayedCars", JSON.stringify(AllCars));
 
     }
 
@@ -63,24 +55,14 @@ export default function App() {
     }
 
     useEffect(() => {
-        GetCars();
+        if (LocalStorageCars === null || SessionDisplayedCars === null) {
+            GetCars();
+        }
+
     }, []);
 
     useEffect(() => {
-        if (DisplayedCars.length > 0 && DisplayedCars[0].Empty !== undefined) {
-            if (sessionStorage.getItem("DisplayedCars") !== null) {
-                setDisplayedCars(JSON.parse(sessionStorage.getItem("DisplayedCars")));
-            }
-            else {
-                setDisplayedCars([{}]);
-            }
-        }
-
-        else {
-            localStorage.setItem("DisplayedCars", JSON.stringify(DisplayedCars));
-        }
-
-
+        sessionStorage.setItem("DisplayedCars", JSON.stringify(DisplayedCars));
     }, [DisplayedCars]);
 
     return (
