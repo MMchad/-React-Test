@@ -10,10 +10,10 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
-        <a href="#Firebase Hosting">Installation</a></li>
+        <a href="#Firebase Hosting">Firebase Hosting</a></li>
     </li>
     <li>
-        <a href="#Screenshots">Usage</a>
+        <a href="#Screenshots">Screenshots</a>
     </li>
     <li>
         <a href="#license">License</a>
