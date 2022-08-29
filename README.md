@@ -45,8 +45,6 @@ https://react-cars-e19ad.web.app/
 <!-- USAGE EXAMPLES -->
 ## Screenshots
 
-The app is quiet simple to use
-
 ### Desktop View
 
 ![D-Img1](https://github.com/MMchad/react-test/blob/master/src/Screenshots/Desktop/1.png?raw=true)
