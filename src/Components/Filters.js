@@ -13,8 +13,10 @@ import { CarObjectModel } from './App';
 export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
     const SessionExpanded = JSON.parse(sessionStorage.getItem("Expanded"));
     const SessionExpandClass = JSON.parse(sessionStorage.getItem("ExpandClass"));
+    const SessionFilterCount = sessionStorage.getItem("FilterCount");
     const HideFilters = ["ID", "Title", "Odometer", "Year"];
     const Years = Range(1900, 2024);
+    const [FilterCount, setFilterCount] = useState(SessionFilterCount === null ? 0 : SessionFilterCount);
     const [FilterUniqueKeys, setFilterUniqueKeys] = useState({});
     const [UniqueKeys, setUniqueKeys] = useState({});
     const [Expanded, setExpanded] = useState(SessionExpanded === null ? {} : SessionExpanded);
@@ -83,9 +85,25 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
         AddFilter("Odometer", Values);
     }
 
+    function GetFilterCount() {
+        let Nb = 0;
+        Object.keys(Filters).map((Filter) => {
+            Filter === "Year" || Filter === "Odometer" ? Nb++ : Nb += Filters[Filter].length
+        })
+        return Nb;
+    }
+
     useEffect(() => {
         sessionStorage.setItem("Filters", JSON.stringify(Filters));
+        setFilterCount(GetFilterCount());
+        sessionStorage.setItem("FilterCount", FilterCount);
     }, [Filters]);
+
+    useEffect(() => {
+        console.log(FilterCount)
+    }, [FilterCount]);
+
+
 
     useEffect(() => {
         if (Object.keys(Expanded).length > 0 || Object.keys(ExpandClass).length) {
@@ -144,7 +162,7 @@ export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
                                         <Button style={{ fontSize: "1.7vh" }} variant="primary" onClick={() => { setFilters({}) }}>
                                             Filters&nbsp;
                                             <Badge bg="light" text="dark">
-                                                {Object.keys(Filters).filter(Key => Key !== "Make").length + IsDefined(Filters.Make).length}
+                                                {FilterCount}
                                             </Badge>
                                             <span className="material-symbols-outlined mt-auto mb-auto text-black align-middle ms-2" style={{ fontSize: "2.5vh" }}>
                                                 close
