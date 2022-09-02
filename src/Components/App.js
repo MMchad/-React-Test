@@ -8,28 +8,7 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import '../App.css';
 import { FetchCars } from './Firebase';
 
-export const CarObjectModel = {
-    "Year": "",
-    "Odometer": "",
-    "Make": "",
-    "Model": "",
-    "Series": "",
-    "Damage Type": "",
-    "Damage Location": "",
-    "Exterior": "",
-    "Interior": "",
-    "Body Style": "",
-    "Transmission": "",
-    "Drive": "",
-    "Engine": "",
-    "Cylinders": "",
-    "Title": "",
-    "Airbags": "",
-    "Start Code": "",
-    "Key": "",
 
-
-};
 
 export default function App() {
 

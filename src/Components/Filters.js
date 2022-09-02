@@ -8,7 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Range from 'lodash.range';
 import Stack from 'react-bootstrap/Stack';
 import Col from 'react-bootstrap/Col';
-import { CarObjectModel } from './App';
+import { CarObjectModel } from './Firebase';
 
 export default function Filters({ Cars, Filters, setFilters, SearchCars }) {
     const SessionExpanded = JSON.parse(sessionStorage.getItem("Expanded"));

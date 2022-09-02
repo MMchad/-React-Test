@@ -12,6 +12,27 @@ const firebaseConfig = {
   appId: "1:746552124404:web:081d7eaa85d8d114550fa1"
 };
 
+export const CarObjectModel = {
+  "Year": "",
+  "Odometer": "",
+  "Make": "",
+  "Model": "",
+  "Series": "",
+  "Damage Type": "",
+  "Damage Location": "",
+  "Exterior": "",
+  "Interior": "",
+  "Body Style": "",
+  "Transmission": "",
+  "Drive": "",
+  "Engine": "",
+  "Cylinders": "",
+  "Title": "",
+  "Airbags": "",
+  "Start Code": "",
+  "Key": "",
+};
+
 const firebaseApp = initializeApp(firebaseConfig);
 const DB = getFirestore(firebaseApp);
 export default DB;
